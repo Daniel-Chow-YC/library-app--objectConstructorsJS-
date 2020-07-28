@@ -8,8 +8,7 @@ function Book(title, author, pages, read) {
     this.read = read
 }
 
-function addBookToLibrary() {
-    let newBook;
+function addBookToLibrary(newBook) {
     myLibrary.push(newBook);
 }
 
@@ -35,3 +34,37 @@ function render() {
     }
 }
 render();
+
+
+// For pop up form
+function openForm() {
+    document.getElementById("myForm").style.display = "block";
+  }
+  
+  function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+  } 
+
+// var form = document.getElementById("form-cont");
+// function handleForm(event) { event.preventDefault(); } 
+// form.addEventListener('submit', handleForm);
+let form = document.getElementById("form-cont")
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+})
+
+
+
+function addBook() {
+    let titleValue = document.getElementById("title").value;
+    let authorValue = document.getElementById("author").value;
+    let pagesValue = document.getElementById("pages").value;
+    let newBook = new Book(titleValue, authorValue, pagesValue, false);
+    addBookToLibrary(newBook);
+    render();
+
+}
+
+// var form = document.getElementById("form-cont");
+// function handleForm(event) { event.preventDefault(); } 
+// form.addEventListener('submit', handleForm);

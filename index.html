@@ -16,11 +16,26 @@
                 <th>Pages</th>
                 <th>Finished Reading?</th>
             <tr>
-            
-
-
-
         </table>
+
+        <button class="open-button" onclick="openForm()">New Book</button>
+
+        <div class="form-popup" id="myForm">
+            <form class="form-container" id="form-cont">
+          
+              <label for="title"><b>Title</b></label>
+              <input type="text" id="title" placeholder="Enter title" name="title" required>
+          
+              <label for="author"><b>Author</b></label>
+              <input type="text" id="author" placeholder="Enter name of author" name="author" required>
+
+              <label for="pages"><b>Pages</b></label>
+              <input type="text" id="pages" placeholder="Enter number of pages" name="pages" required>
+          
+              <button input type="submit" class="btn" onclick="addBook()">Submit</button>
+              <button class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+        </div> 
 
 
 
