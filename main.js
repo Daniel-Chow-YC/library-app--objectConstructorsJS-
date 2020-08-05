@@ -53,13 +53,18 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
 })
 
-
+function clearTable() {
+    for (let i = myLibrary.length; i>0; i--) {
+        table.deleteRow(i);
+    }
+}
 
 function addBook() {
     let titleValue = document.getElementById("title").value;
     let authorValue = document.getElementById("author").value;
     let pagesValue = document.getElementById("pages").value;
     let newBook = new Book(titleValue, authorValue, pagesValue, false);
+    clearTable();
     addBookToLibrary(newBook);
     render();
 
