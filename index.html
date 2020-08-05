@@ -31,7 +31,14 @@
 
               <label for="pages"><b>Pages</b></label>
               <input type="text" id="pages" placeholder="Enter number of pages" name="pages" required>
-          
+               
+              <b>Have you finished reading this book?</b>
+              <br>
+              <input type="radio" id="yes" name="read?" value="yes">
+              <label for="yes">Yes</label><br>
+              <input type="radio" id="no" name="read?" value="no">
+              <label for="no">No</label><br>
+
               <button input type="submit" class="btn" onclick="addBook()">Submit</button>
               <button class="btn cancel" onclick="closeForm()">Close</button>
             </form>

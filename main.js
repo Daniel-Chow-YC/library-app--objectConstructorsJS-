@@ -63,7 +63,8 @@ function addBook() {
     let titleValue = document.getElementById("title").value;
     let authorValue = document.getElementById("author").value;
     let pagesValue = document.getElementById("pages").value;
-    let newBook = new Book(titleValue, authorValue, pagesValue, false);
+    let read = document.getElementById("yes").checked;
+    let newBook = new Book(titleValue, authorValue, pagesValue, read);
     clearTable();
     addBookToLibrary(newBook);
     render();
