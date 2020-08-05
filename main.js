@@ -31,9 +31,32 @@ function render() {
             row.insertCell(3).innerHTML = `Yes`;
         else
             row.insertCell(3).innerHTML = `No`;
+        row.insertCell(4).innerHTML = `<button input class="btn" onClick=Delete()>Delete</button>`
+        // row.insertCell(4).innerHTML = "Delete";
     }
 }
 render();
+
+
+function Delete() {
+    for (let i=1; i<table.rows.length-1; i++) {
+        table.rows[i].cells[4].onclick = function() {
+            let index = this.parentElement.rowIndex;
+            table.deleteRow(index);
+            myLibrary.splice(index-1,1)
+        }
+    }
+}
+
+// function deleteRow() {
+//     for (let i=0; i < myLibrary.length; i++) {
+//         if (table.rows[i+1].cells[0].innerText == `${myLibrary[i].title}`) {
+//             table.deleteRow[i+1];
+//             myLibrary.splice(i,1);
+//         }
+//     }
+// }
+
 
 
 // For pop up form
