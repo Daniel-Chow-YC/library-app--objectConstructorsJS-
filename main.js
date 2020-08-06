@@ -1,5 +1,6 @@
 let myLibrary = [];
 
+
 // Object Constructor
 function Book(title, author, pages, read) {
     this.title = title
@@ -12,16 +13,17 @@ function addBookToLibrary(newBook) {
     myLibrary.push(newBook);
 }
 
-// creating books
-const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, true)
-const hp = new Book("Harry Potter", "Jk Rowling", 300, false)
-// adding books to myLibrary
-myLibrary.push(theHobbit);
-myLibrary.push(hp);
+// // creating default books 
+// const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, true)
+// const hp = new Book("Harry Potter", "Jk Rowling", 300, false)
+// // adding default books to myLibrary
+// myLibrary.push(theHobbit);
+// myLibrary.push(hp);
 
 let table = document.getElementById("myTable");
 
 function render() {
+    saveToLocalStorage();
     for (let i=0; i < myLibrary.length; i++) {
         let row = table.insertRow(i+1);
         row.insertCell(0).innerHTML = `${myLibrary[i].title}`
@@ -36,6 +38,7 @@ function render() {
         
     }
 }
+loadFromLocalStorage();
 render();
 
 function Toggle() {
@@ -64,7 +67,8 @@ function Delete() {
         table.rows[i].cells[5].onclick = function() {
             let index = this.parentElement.rowIndex;
             table.deleteRow(index);
-            myLibrary.splice(index-1,1)
+            myLibrary.splice(index-1,1);
+            saveToLocalStorage();
         }
     }
 }
@@ -111,3 +115,33 @@ function addBook() {
 // var form = document.getElementById("form-cont");
 // function handleForm(event) { event.preventDefault(); } 
 // form.addEventListener('submit', handleForm);
+
+
+/* ------LOCAL STORAGE FUNCTIONS------ */
+
+function saveToLocalStorage() {
+    localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+  }
+
+// Load library from storage
+function loadFromLocalStorage(){
+    let loadedLibrary = JSON.parse(localStorage.getItem('myLibrary'));
+    // If empty library, load the default books and update library array, else, update library array with previous session library
+    if(loadedLibrary === null || loadedLibrary === undefined || loadedLibrary.length == 0){
+        loadDefaultBooks();
+        saveToLocalStorage();
+    }
+    else {
+        myLibrary = loadedLibrary;
+        
+    }
+  }
+  
+ 
+function loadDefaultBooks() {
+    const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, true)
+    const hp = new Book("Harry Potter", "Jk Rowling", 300, false)
+    addBookToLibrary(theHobbit);
+    addBookToLibrary(hp);
+
+}
