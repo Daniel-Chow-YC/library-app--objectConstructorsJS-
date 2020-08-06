@@ -13,12 +13,6 @@ function addBookToLibrary(newBook) {
     myLibrary.push(newBook);
 }
 
-// // creating default books 
-// const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, true)
-// const hp = new Book("Harry Potter", "Jk Rowling", 300, false)
-// // adding default books to myLibrary
-// myLibrary.push(theHobbit);
-// myLibrary.push(hp);
 
 let table = document.getElementById("myTable");
 
@@ -38,9 +32,12 @@ function render() {
         
     }
 }
+
+// Functions that run each time the page is loaded
 loadFromLocalStorage();
 render();
 
+// Function for change read status button
 function Toggle() {
     for (let i=1; i<table.rows.length-1; i++) {
         table.rows[i].cells[4].onclick = function() {
@@ -59,9 +56,7 @@ function Toggle() {
     }      
 }
 
-
-
-
+// Removes book from Table
 function Delete() {
     for (let i=1; i<table.rows.length-1; i++) {
         table.rows[i].cells[5].onclick = function() {
