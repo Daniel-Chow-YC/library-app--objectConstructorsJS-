@@ -10,3 +10,4 @@ Create a small library app. This app should include:
 
 ## Still To Do:
 - Make the app look more presentable. 
+- Project Link: https://daniel-chow-yc.github.io/library-app--objectConstructorsJS-/
