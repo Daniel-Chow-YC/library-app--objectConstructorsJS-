@@ -2,7 +2,7 @@
 
 /* Button used to open the contact form - fixed at the bottom of the page */
 .open-button {
-  background-color: rgb(16, 28, 138);
+  background-color: rgb(19, 52, 122);
   color: white;
   padding: 16px 20px;
   border: none;
@@ -71,4 +71,9 @@
 h1 {
   text-align: center;
   color: rgb(19, 52, 122);
+}
+
+#myTable {
+  width: 70%;
+  margin: auto;
 }

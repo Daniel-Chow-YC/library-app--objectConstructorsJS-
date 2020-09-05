@@ -8,6 +8,5 @@ Create a small library app. This app should include:
 - a button on each book’s display to change its read status. 
 - local storage so when the user refreshes the page all of their books will be saved
 
-## Still To Do:
-- Make the app look more presentable. 
-- Project Link: https://daniel-chow-yc.github.io/library-app--objectConstructorsJS-/
+## Access the Project 
+View app in browser: https://daniel-chow-yc.github.io/library-app--objectConstructorsJS-/
